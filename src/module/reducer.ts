@@ -4,10 +4,10 @@ import {
   AUTH_LOGOUT,
   AUTH_REFRESH_SUCCESS,
 } from "./actions";
-import type { AuthToken } from "./types";
+import { AuthToken } from "./types";
 
 export type State = {
-  loggedIn: bool,
+  loggedIn: boolean,
   access_token: null|string,
   created_at: null|number,
   expires_in: null|number,

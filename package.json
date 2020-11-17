@@ -13,25 +13,46 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "coverage": "jest --coverage",
-    "copy-flow": "flow-copy-source src lib",
-    "build": "babel src/ -d lib/",
-    "prepublish": "yarn run build && yarn run copy-flow"
+    "build": "babel src/module/ -d lib/",
+    "build-client": "react-scripts build",
+    "start": "react-scripts start"
   },
   "devDependencies": {
+    "@types/react": "^16.9.35",
+    "@types/react-dom": "^16.9.8",
     "babel-cli": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-preset-env": "^1.4.0",
     "babel-preset-flow": "^6.23.0",
     "flow-bin": "^0.46.0",
     "flow-copy-source": "^1.1.0",
-    "jest": "^20.0.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "^3.4.4",
     "redux": "^3.6.0",
-    "redux-logger": "^3.0.1"
+    "redux-logger": "^3.0.1",
+    "redux-saga": "^1.0.0",
+    "typescript": "^3.7.5"
   },
   "dependencies": {
     "axios": "^0.16.1"
   },
   "peerDependencies": {
-    "redux-saga": "^0.15.3"
+    "redux-saga": "^1.0.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "react-app"
   }
 }

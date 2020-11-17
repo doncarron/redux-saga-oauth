@@ -1,4 +1,3 @@
-// @flow
 import {
   delay,
   select,
@@ -23,7 +22,7 @@ import {
   authRefreshError,
   authInvalidError,
 } from "./actions";
-import type { State } from "./reducer";
+import { State } from "./reducer";
 
 const tokenHasExpired = ({
   expires_in,
@@ -64,9 +63,9 @@ const createAuthSaga = (options: {
     reducerKey,
   } = options;
 
-  const getAuth = state => state[reducerKey];
+  const getAuth = (state: any) => state[reducerKey];
 
-  function* RefreshToken(refresh_token) {
+  function* RefreshToken(refresh_token: any) {
     try {
       const params = {
         refresh_token,
@@ -134,7 +133,7 @@ const createAuthSaga = (options: {
     }
   }
 
-  function* Authorize(action) {
+  function* Authorize(action: any) {
     try {
       const { onSuccess, payload } = action;
 
@@ -165,7 +164,7 @@ const createAuthSaga = (options: {
     }
   }
 
-  function* Authentication(): Generator<*, *, *> {
+  function* Authentication(): Generator<any, any, any> {
     while (true) {
       const { loggedIn } = yield select(getAuth);
       var authorizeTask = null;
